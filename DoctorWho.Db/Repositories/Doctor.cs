@@ -22,10 +22,9 @@ namespace DoctorWho
 
         private static DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
 
-        //create
 
 
-        static void AddDoctor(String name, int number, DateTime birsthdate, DateTime firsteps, DateTime lasteps)
+        public static void AddDoctor(String name, int number, DateTime birsthdate, DateTime firsteps, DateTime lasteps)
         {
             using (DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext())
             {
@@ -37,7 +36,7 @@ namespace DoctorWho
 
         }
 
-        static void UpdateDoctor(int id, String name, int number, DateTime birsthdate, DateTime firsteps, DateTime lasteps)
+        public static void UpdateDoctor(int id, String name, int number, DateTime birsthdate, DateTime firsteps, DateTime lasteps)
         {
             using (DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext())
             {
@@ -51,7 +50,7 @@ namespace DoctorWho
             }
             
         }
-        static void DeleteDoctor(int id)
+        public static void DeleteDoctor(int id)
         {
             using (DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext())
             {
@@ -61,7 +60,7 @@ namespace DoctorWho
             }
             
         }
-        static List<Doctor> GetAllDoctors()
+        public static List<Doctor> GetAllDoctors()
         {
             using (DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext())
             {

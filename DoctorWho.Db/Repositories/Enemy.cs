@@ -19,14 +19,14 @@ namespace DoctorWho
         }
 
 
-        static void AddEnemy(string name, string desc)
+        public static void AddEnemy(string name, string desc)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var enemy = new Enemy() { EnemyName = name, Description = desc };
             _context.Enemies.Add(enemy);
             _context.SaveChanges();
         }
-        static void UpdateEnemy(int id, string name, string desc)
+        public static void UpdateEnemy(int id, string name, string desc)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var enemy = _context.Enemies.Find(id);
@@ -34,15 +34,15 @@ namespace DoctorWho
             enemy.Description = desc;
             _context.SaveChanges();
         }
-        static void DeleteEnemy(int id)
+        public static void DeleteEnemy(int id)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var enemy = _context.Enemies.Find(id);
             _context.Remove(enemy);
             _context.SaveChanges();
         }
-        
-        static Enemy GetEnemyById(int id)
+
+        public static Enemy GetEnemyById(int id)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var enemy = _context.Enemies.Find(id);

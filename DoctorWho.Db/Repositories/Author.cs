@@ -13,7 +13,7 @@ namespace DoctorWho
 
         public List<Episode> Episodes { get; set; }
 
-        static void AddAuthor(string name)
+        public static void AddAuthor(string name)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var author = new Author() { AuthorName = name };
@@ -21,7 +21,7 @@ namespace DoctorWho
             _context.SaveChanges();
         }
 
-        static void UpdateAuthor(int id, string name)
+        public static void UpdateAuthor(int id, string name)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var author = _context.Authors.Find(id);
@@ -31,7 +31,7 @@ namespace DoctorWho
 
         }
 
-        static void DeleteAuthor(int id)
+        public static void DeleteAuthor(int id)
          {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var author = _context.Authors.Find(id);

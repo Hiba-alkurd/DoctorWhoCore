@@ -32,7 +32,7 @@ namespace DoctorWho
 
 
 
-        static void AddEpisode(int series, int authorid, int doctorid, int epsNumber, string title, string type, string notes, DateTime date)
+        public static void AddEpisode(int series, int authorid, int doctorid, int epsNumber, string title, string type, string notes, DateTime date)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var episode = new Episode()
@@ -50,7 +50,7 @@ namespace DoctorWho
             _context.SaveChanges();
 
         }
-        static void UpdateEpisode(int id, int series, int authorid, int doctorid, int epsNumber, string title, string type, string notes, DateTime date)
+        public static void UpdateEpisode(int id, int series, int authorid, int doctorid, int epsNumber, string title, string type, string notes, DateTime date)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var episode = _context.Episodes.Find(id);
@@ -64,7 +64,7 @@ namespace DoctorWho
             episode.Notes = notes;
             _context.SaveChanges();
         }
-        static void DeleteEpisode(int id)
+        public static void DeleteEpisode(int id)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var eps = _context.Episodes.Find(id);

@@ -41,7 +41,7 @@ namespace DoctorWho.Db
     public class fnEnemiesClass
     {
         public String EnemyName { get; set; }
-        static List<fnEnemiesClass> fnEnemies(int id)
+        public static List<fnEnemiesClass> fnEnemies(int id)
         {
                 using (var _context = new DoctorWhoCoreDbContext())
                 {

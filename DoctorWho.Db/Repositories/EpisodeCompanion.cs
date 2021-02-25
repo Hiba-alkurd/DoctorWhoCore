@@ -13,7 +13,7 @@ namespace DoctorWho
         public int CompanionId { get; set; }
         public Companion Companion { get; set; }
 
-        static void AddCompanionToEpisode(int episodeId, int companionId)
+        public static void AddCompanionToEpisode(int episodeId, int companionId)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var episodeCompanion = new EpisodeCompanion() { EpisodeId = episodeId, CompanionId = companionId };

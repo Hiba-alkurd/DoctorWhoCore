@@ -19,7 +19,7 @@ namespace DoctorWho
         }
 
 
-        static void AddCompanion(string name, string actor)
+        public static void AddCompanion(string name, string actor)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var companion = new Companion() { CompanionName = name, WhoPlayed = actor };
@@ -27,7 +27,7 @@ namespace DoctorWho
             _context.SaveChanges();
 
         }
-        static void UpdateCompanion(int id, string name, string actor)
+        public static void UpdateCompanion(int id, string name, string actor)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var companion = _context.Companions.Find(id);
@@ -35,7 +35,7 @@ namespace DoctorWho
             companion.CompanionName = name;
             _context.SaveChanges();
         }
-        static void DeleteCompanion(int id)
+        public static void DeleteCompanion(int id)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var companion = _context.Companions.Find(id);
@@ -43,7 +43,7 @@ namespace DoctorWho
             _context.SaveChanges();
 
         }
-        static Companion GetCompanionById(int id)
+        public static Companion GetCompanionById(int id)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var companion = _context.Companions.Find(id);

@@ -14,7 +14,7 @@ namespace DoctorWho
         public int EnemyId { get; set; }
         public Enemy Enemy { get; set; }
 
-        static void AddEnemyToEpisode(int episodeId, int enemyId)
+        public static void AddEnemyToEpisode(int episodeId, int enemyId)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var episodeEnemy = new EpisodeEnemy() { EpisodeId = episodeId, EnemyId = enemyId };
