@@ -5,36 +5,12 @@ using DoctorWho.Db;
 
 namespace DoctorWho
 {
-    public class Episode
+    public class EpisodeRepository 
     {
 
-        public Episode()
+        public void AddEpisode(DoctorWhoCoreDbContext _context, int series, int authorid, int doctorid, int epsNumber, string title, string type, string notes, DateTime date)
         {
-            EpisodeCompanion = new List<EpisodeCompanion>();
-            EpisodeEnemy = new List<EpisodeEnemy>();
-        }
-
-        public int EpisodeId { get; set; }
-        public int SeriesNumber { get; set; }
-        public int EpisodeNumber { get; set; }
-        public String EpisodeType { get; set; }
-        public String Title { get; set; }
-        public DateTime EpisodeDate { get; set; }
-        public String Notes { get; set; }
-
-        public int AuthorId { get; set; }
-        public Author author { get; set; }
-        public int DoctorId { get; set; }
-        public Doctor doctor { get; set; }
-
-        public List<EpisodeCompanion> EpisodeCompanion { get; set; }
-        public List<EpisodeEnemy> EpisodeEnemy { get; set; }
-
-
-
-        public static void AddEpisode(int series, int authorid, int doctorid, int epsNumber, string title, string type, string notes, DateTime date)
-        {
-            using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
+            
             var episode = new Episode()
             {
                 Title = title,
@@ -50,7 +26,7 @@ namespace DoctorWho
             _context.SaveChanges();
 
         }
-        public static void UpdateEpisode(int id, int series, int authorid, int doctorid, int epsNumber, string title, string type, string notes, DateTime date)
+        public void UpdateEpisode(int id, int series, int authorid, int doctorid, int epsNumber, string title, string type, string notes, DateTime date)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var episode = _context.Episodes.Find(id);
@@ -64,7 +40,7 @@ namespace DoctorWho
             episode.Notes = notes;
             _context.SaveChanges();
         }
-        public static void DeleteEpisode(int id)
+        public void DeleteEpisode(int id)
         {
             using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var eps = _context.Episodes.Find(id);

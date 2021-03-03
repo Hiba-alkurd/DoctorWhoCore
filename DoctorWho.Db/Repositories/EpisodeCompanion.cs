@@ -5,17 +5,11 @@ using DoctorWho.Db;
 
 namespace DoctorWho
 {
-    public class EpisodeCompanion
+    public class EpisodeCompanionRepository : IEpisodeCompanionRepository
     {
-        public int EpisodeCompanionId { get; set; }
-        public int EpisodeId { get; set; }
-        public Episode Episode { get; set; }
-        public int CompanionId { get; set; }
-        public Companion Companion { get; set; }
 
-        public static void AddCompanionToEpisode(int episodeId, int companionId)
+        public void AddCompanionToEpisode(DoctorWhoCoreDbContext _context, int episodeId, int companionId)
         {
-            using DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
             var episodeCompanion = new EpisodeCompanion() { EpisodeId = episodeId, CompanionId = companionId };
             _context.EpisodeCompanions.Add(episodeCompanion);
             _context.SaveChanges();

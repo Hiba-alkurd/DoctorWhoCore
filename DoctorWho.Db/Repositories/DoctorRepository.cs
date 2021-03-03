@@ -7,24 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DoctorWho
 {
-    public class Doctor
+    public class DoctorRepository : IDoctorRepository
     {
-        public int DoctorId { get; set; }
-        public int DoctorNumber { get; set; }
-        public string DoctorName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public DateTime FirstEpisodeDate { get; set; }
-        public DateTime LastEpisodeDate { get; set; }
 
-        public List<Episode> Episodes { get; set; }
-
-
-
-        private static DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext();
-
-
-
-        public static void AddDoctor(String name, int number, DateTime birsthdate, DateTime firsteps, DateTime lasteps)
+        public void AddDoctor(String name, int number, DateTime birsthdate, DateTime firsteps, DateTime lasteps)
         {
             using (DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext())
             {
@@ -36,7 +22,7 @@ namespace DoctorWho
 
         }
 
-        public static void UpdateDoctor(int id, String name, int number, DateTime birsthdate, DateTime firsteps, DateTime lasteps)
+        public void UpdateDoctor(int id, String name, int number, DateTime birsthdate, DateTime firsteps, DateTime lasteps)
         {
             using (DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext())
             {
@@ -48,9 +34,9 @@ namespace DoctorWho
                 doctor.LastEpisodeDate = lasteps;
                 _context.SaveChanges();
             }
-            
+
         }
-        public static void DeleteDoctor(int id)
+        public void DeleteDoctor(int id)
         {
             using (DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext())
             {
@@ -58,9 +44,9 @@ namespace DoctorWho
                 _context.Remove(doctor);
                 _context.SaveChanges();
             }
-            
+
         }
-        public static List<Doctor> GetAllDoctors()
+        public List<Doctor> GetAllDoctors()
         {
             using (DoctorWhoCoreDbContext _context = new DoctorWhoCoreDbContext())
             {

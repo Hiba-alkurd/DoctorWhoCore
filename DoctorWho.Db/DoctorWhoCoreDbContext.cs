@@ -19,10 +19,20 @@ namespace DoctorWho.Db
 
         public DbSet<EpisodesView> EpisodesViews { get; set; }
 
+        public DoctorWhoCoreDbContext()
+        { }
+
+        public DoctorWhoCoreDbContext(DbContextOptions options)
+          : base(options)
+        { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlServer("server=LAPTOP-QM0H46RJ\\SQLEXPRESS;database=DoctorWhoCore;trusted_connection=true;");
+            if (!dbContextOptionsBuilder.IsConfigured)
+            {
+                dbContextOptionsBuilder.UseSqlServer("server=LAPTOP-QM0H46RJ\\SQLEXPRESS;database=DoctorWhoCore;trusted_connection=true;");
+            }
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
